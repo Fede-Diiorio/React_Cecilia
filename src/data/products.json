@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "titulo": "Sweet box",
+    "categoria": "Desayunos",
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYB2gaQK4JCGq4qhe7xY4hxV1i4eXohIqxMz2zFQY40g&s",
+    "descripcion": "Con todo lo mejor para que puedas sorprender a quien quieras!",
+    "precio": 7000
+  },
+
+  {
+    "id": 2,
+    "titulo": "Chocotorta",
+    "categoria": "Tortas",
+    "imagen": "https://www.clarin.com/2020/07/15/qH4UH5dLO_1200x0__1.jpg",
+    "descripcion": "Nuestra Estrella!",
+    "precio": 5500
+  },
+
+{  "id": 3,
+    "titulo": "Recetas",
+    "categoria": "Recetas",
+    "imagen": "https://cdn.recetasderechupete.com/wp-content/uploads/2021/03/Postres-para-impresionar.jpg",
+    "descripcion": "Aprendé a cocinar con Tres Tartas!"
+  }
+
+]

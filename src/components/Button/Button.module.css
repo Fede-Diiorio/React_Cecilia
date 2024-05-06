@@ -1,0 +1,23 @@
+.button {
+    color: white;
+    background-color: blue;
+    padding: .5rem 1rem;
+    font-size: 1.4rem;
+    border: 2px solid red;
+    border-radius: 1rem;
+    min-width: 7rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all .3s ease-in-out;
+
+
+}
+
+.button:hover {
+    background-color: darkblue;
+    color: red;
+    border: 2px solid blue;
+    cursor: pointer;
+    scale: 1.1;
+}

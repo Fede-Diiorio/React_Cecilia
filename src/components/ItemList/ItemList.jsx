@@ -2,6 +2,7 @@ import { Item } from "../Item";
 import classes from './ItemList.module.css';
 
 const ItemList = ({ products }) => {
+  console.log(products);
   return (
     <div className={classes.display}>
       {

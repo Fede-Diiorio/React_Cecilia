@@ -1,21 +1,31 @@
 import { useParams } from "react-router-dom"
-import { getProducts } from "../../services/firebase/firestore/products"
 import ItemList from "../ItemList/ItemList"
-import { useAsync } from "../../hooks/useAsync"
+import { useEffect, useState } from "react";
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
 const ItemListContainer = ({ greeting }) => {
-  const { categoryId } = useParams()
+  const [products, setProducts] = useState([]);
 
-  const asyncFunction = () => getProducts(categoryId)
-  const { data: products, error, loading } = useAsync(asyncFunction, [categoryId])
+  const { categoryId } = useParams();
 
-  if (loading) {
-    return <h2>Cargando...</h2>
-  }
+  useEffect(() => {
+    const db = getFirestore();
+    const productsCollection = collection(db, 'products'); // Asegúrate de que 'products' es el nombre correcto de tu colección
 
-  if (error) {
-    showNotification('error', 'Hubo un error')
-  }
+    getDocs(productsCollection).then((querySnapshot) => {
+      const productsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      if (!categoryId) {
+        setProducts(productsData);
+      } else {
+        const filtered = productsData.filter(
+          (product) => product.categoria === categoryId
+        );
+        setProducts(filtered);
+      }
+    });
+  }, [categoryId]);
+
+  if (!products.length) return <div>Cargando...</div>;
 
   return (
     <section className="container">
